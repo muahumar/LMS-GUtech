@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased min-h-screen;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ---------- Dark theme ----------
+   Components use light Tailwind utilities; these overrides remap them when <html class="dark"> is set. */
+.dark body { background-color: #0b1120; color: #e2e8f0; }
+.dark ::-webkit-scrollbar-thumb { background: #334155; }
+.dark ::-webkit-scrollbar-thumb:hover { background: #475569; }
+
+/* Surfaces */
+.dark .bg-white { background-color: #111827; }
+.dark .bg-white\/90, .dark .bg-white\/80, .dark .bg-white\/70, .dark .bg-white\/60 { background-color: rgba(17, 24, 39, 0.9); }
+.dark .bg-slate-50, .dark .bg-slate-50\/50, .dark .bg-slate-50\/80 { background-color: #0b1120; }
+.dark .bg-slate-100 { background-color: #1e293b; }
+.dark .bg-slate-200 { background-color: #334155; }
+.dark .hover\:bg-slate-50:hover { background-color: #1e293b; }
+.dark .hover\:bg-slate-100:hover { background-color: #1e293b; }
+.dark .hover\:bg-slate-200:hover { background-color: #334155; }
+
+/* Borders & dividers */
+.dark .border-slate-100, .dark .border-slate-200, .dark .border-slate-200\/60, .dark .border-slate-200\/80, .dark .border-slate-300 { border-color: #1f2a3d; }
+.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]),
+.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) { border-color: #1f2a3d; }
+
+/* Text */
+.dark .text-slate-900, .dark .text-slate-800 { color: #f1f5f9; }
+.dark .text-slate-700 { color: #e2e8f0; }
+.dark .text-slate-600 { color: #cbd5e1; }
+.dark .text-slate-500 { color: #94a3b8; }
+.dark .text-slate-400 { color: #7c8ba1; }
+.dark .hover\:text-slate-900:hover, .dark .hover\:text-slate-700:hover { color: #ffffff; }
+.dark .placeholder-slate-400::placeholder, .dark .placeholder\:text-slate-400::placeholder { color: #64748b; }
+
+/* Form controls */
+.dark input, .dark select, .dark textarea { background-color: #0f172a; color: #e2e8f0; border-color: #334155; }
+.dark input::placeholder, .dark textarea::placeholder { color: #64748b; }
+.dark table thead, .dark thead tr { background-color: #0f172a; }
+
+/* Tinted status surfaces (badges, alerts) */
+.dark :is(.bg-brand-50, .bg-brand-100) { background-color: rgba(214, 46, 79, 0.15); }
+.dark :is(.bg-rose-50, .bg-rose-100, .bg-red-50, .bg-red-100) { background-color: rgba(244, 63, 94, 0.15); }
+.dark :is(.bg-emerald-50, .bg-emerald-100, .bg-green-50, .bg-green-100) { background-color: rgba(16, 185, 129, 0.15); }
+.dark :is(.bg-amber-50, .bg-amber-100, .bg-yellow-50, .bg-orange-50) { background-color: rgba(245, 158, 11, 0.15); }
+.dark :is(.bg-indigo-50, .bg-indigo-100, .bg-violet-50, .bg-purple-50) { background-color: rgba(99, 102, 241, 0.18); }
+.dark :is(.bg-blue-50, .bg-blue-100, .bg-sky-50, .bg-sky-100) { background-color: rgba(59, 130, 246, 0.15); }
+.dark :is(.text-brand-600, .text-brand-700, .text-brand-800) { color: #ff9aab; }
+.dark :is(.text-rose-600, .text-rose-700, .text-rose-800, .text-red-600, .text-red-700, .text-red-800) { color: #fda4af; }
+.dark :is(.text-emerald-600, .text-emerald-700, .text-emerald-800, .text-green-600, .text-green-700) { color: #6ee7b7; }
+.dark :is(.text-amber-600, .text-amber-700, .text-amber-800, .text-yellow-700, .text-orange-700) { color: #fcd34d; }
+.dark :is(.text-indigo-600, .text-indigo-700, .text-indigo-800, .text-violet-700, .text-purple-700) { color: #a5b4fc; }
+.dark :is(.text-blue-600, .text-blue-700, .text-blue-800, .text-sky-700) { color: #93c5fd; }
+.dark :is(.border-brand-200, .border-brand-200\/60, .border-rose-200, .border-red-200, .border-emerald-200, .border-amber-200, .border-indigo-200, .border-blue-200, .border-sky-200) { border-color: rgba(148, 163, 184, 0.25); }
+
+/* Shadows read too strong on dark backgrounds */
+.dark .shadow-premium, .dark .shadow-subtle, .dark .shadow-sm, .dark .shadow-md, .dark .shadow-lg, .dark .shadow-xl { box-shadow: 0 4px 14px -4px rgba(0, 0, 0, 0.5); }
